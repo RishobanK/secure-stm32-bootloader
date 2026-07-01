@@ -256,6 +256,21 @@ If both values match, the firmware is considered intact. If they do not match, t
 > Note: CRC32 is an integrity check, not cryptographic authentication. It can detect accidental corruption, but it does not prove that the firmware came from an authorized source. Authenticated firmware validation using HMAC-SHA256 or digital signatures is planned as a future improvement.
 
 ---
+## Security Notes
+
+This project currently uses CRC32 for firmware integrity checking. CRC32 is useful for detecting accidental corruption or incomplete flash writes, but it is not a cryptographic security mechanism. It does not prove that the firmware came from an authorized source.
+
+Planned security improvements include:
+
+* HMAC-SHA256 based firmware authentication
+* Digital signature verification using public-key cryptography
+* Firmware version checking
+* Anti-rollback protection
+* Application health confirmation after update
+
+The goal of the project is to gradually evolve from basic firmware integrity checking toward authenticated and secure firmware update concepts.
+
+---
 
 ## Update Flag Mechanism
 
